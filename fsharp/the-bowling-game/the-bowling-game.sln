@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "the-bowling-game", "the-bowling-game\the-bowling-game.fsproj", "{2734748A-6BFB-450A-B65F-83E9FF9DA733}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2734748A-6BFB-450A-B65F-83E9FF9DA733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2734748A-6BFB-450A-B65F-83E9FF9DA733}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2734748A-6BFB-450A-B65F-83E9FF9DA733}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2734748A-6BFB-450A-B65F-83E9FF9DA733}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
