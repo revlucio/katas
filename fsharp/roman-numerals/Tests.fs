@@ -3,15 +3,17 @@ module Tests
 open System
 open Xunit
 
-let arabicToRoman arabic =
-    ([1..arabic]
-    |> List.fold(fun acc elem -> acc + "I") "")
-        .Replace("IIIII", "V")
-        .Replace("IIII", "IV")
-        .Replace("VIV", "IX")
-        .Replace("VV", "X")
-        .Replace("XXXXX", "L")
-        .Replace("XXXX", "XL")
+let rec arabicToRoman arabic = 
+    match arabic with
+    | 0 -> ""
+    | arabic when arabic < 4 -> "I" + arabicToRoman(arabic - 1)
+    | 4 -> "IV"
+    | arabic when arabic < 9 -> "V" + arabicToRoman(arabic - 5)
+    | 9 -> "IX"
+    | arabic when arabic < 40 -> "X" + arabicToRoman(arabic - 10)
+    | arabic when arabic < 50 -> "XL" + arabicToRoman(arabic - 40)
+    | arabic when arabic < 100 -> "L" + arabicToRoman(arabic - 50)
+    | 100 -> "C" + arabicToRoman(arabic - 100)
 
 [<Fact>]
 let ``1 goes to I`` () =
@@ -46,9 +48,25 @@ let ``10 goes to X`` () =
     Assert.Equal("X", arabicToRoman 10)
     
 [<Fact>]
+let ``33 goes to XXXIII`` () =
+    Assert.Equal("XXXIII", arabicToRoman 33)
+    
+[<Fact>]
 let ``40 goes to XL`` () =
     Assert.Equal("XL", arabicToRoman 40)
+
+[<Fact>]
+let ``41 goes to XLI`` () =
+    Assert.Equal("XLI", arabicToRoman 41)
     
 [<Fact>]
 let ``50 goes to L`` () =
     Assert.Equal("L", arabicToRoman 50)
+    
+[<Fact>]
+let ``55 goes to LV`` () =
+    Assert.Equal("LV", arabicToRoman 55)
+    
+[<Fact>]
+let ``100 goes to C`` () =
+    Assert.Equal("C", arabicToRoman 100)
